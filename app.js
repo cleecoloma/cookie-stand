@@ -23,7 +23,7 @@ const store2 = {
   avgCookiePerCustomer: 1.2,
   randomCustomers: function () {
     return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  }
+  },
 };
 
 const store3 = {
@@ -33,7 +33,7 @@ const store3 = {
   avgCookiePerCustomer: 3.7,
   randomCustomers: function () {
     return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  }
+  },
 };
 
 const store4 = {
@@ -43,7 +43,7 @@ const store4 = {
   avgCookiePerCustomer: 2.3,
   randomCustomers: function () {
     return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  }
+  },
 };
 
 const store5 = {
@@ -53,7 +53,7 @@ const store5 = {
   avgCookiePerCustomer: 4.6,
   randomCustomers: function () {
     return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  }
+  },
 };
 
 function calculateSales(storeName) {
@@ -73,25 +73,36 @@ calculateSales(store2);
 calculateSales(store3);
 calculateSales(store4);
 
-let unorderedList = document.getElementById('main');
 
 function createSalesPerHour(store) {
-  let ulName = document.createElement('ul');
-  ulName.textContent = store.name;
-  unorderedList.appendChild(ulName);
+  let mainName = document.createElement('p');
+   let unorderedList = document.getElementById('store');
+   let total = null;
+  mainName.textContent = store.name;
+  unorderedList.appendChild(mainName);
+  let liName = document.getElementById('store');
   for (let i = 0; i < store.sales.length; i++) {
-    let listItem = document.createElement('p');
     if (i < 6) {
-      listItem.textContent = i + 6 + 'am: ' + store.sales[i] + ' cookies';
-      ulName.appendChild(listItem);
-    } else if ((i = 6)) {
-      listItem.textContent = i + 6 + 'pm: ' + store.sales[i] + ' cookies';
-      ulName.appendChild(listItem);
+      total += store.sales[i];
+      let listItem = document.createElement('li');
+      listItem.textContent = i+6 + 'am: ' + store.sales[i] + ' cookies';
+      liName.appendChild(listItem);
+    } else if (i === 6) {
+      let listItem = document.createElement('li');
+      listItem.textContent = i+6 + 'pm: ' + store.sales[i] + ' cookies';
+      liName.appendChild(listItem);
     } else {
-      listItem.textContent = i + 1 + 'pm: ' + store.sales[i] + ' cookies';
-      ulName.appendChild(listItem);
-    }
+      let listItem = document.createElement('li');
+      listItem.textContent = i-6 + 'pm: ' + store.sales[i] + ' cookies';
+      liName.appendChild(listItem);
+    };
   };
-};
+  let listItem = document.createElement('li');
+  listItem.textContent = 'Total: ' + total + ' cookies';
+  liName.appendChild(listItem);
+}
 
 createSalesPerHour(store1);
+createSalesPerHour(store2);
+createSalesPerHour(store3);
+createSalesPerHour(store4);
