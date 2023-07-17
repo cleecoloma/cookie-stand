@@ -1,4 +1,10 @@
 body {
-  background-color:darksalmon ;
+  background-color: darksalmon;
   color: white;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
