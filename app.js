@@ -7,25 +7,30 @@ const seattle = {
 }
 
 const tokyo = {
-  minCustomersPerHour: 23,
-  maxCustomersPerHour: 65,
-  avgCookiePerCustomer: 6.3,
+  minCustomersPerHour: 3,
+  maxCustomersPerHour: 24,
+  avgCookiePerCustomer: 1.2,
 };
 
 const dubai = {
-  minCustomersPerHour: 23,
-  maxCustomersPerHour: 65,
-  avgCookiePerCustomer: 6.3,
+  minCustomersPerHour: 11,
+  maxCustomersPerHour: 38,
+  avgCookiePerCustomer: 3.7,
 };
 
 const paris = {
-  minCustomersPerHour: 23,
-  maxCustomersPerHour: 65,
-  avgCookiePerCustomer: 6.3,
+  minCustomersPerHour: 20,
+  maxCustomersPerHour: 38,
+  avgCookiePerCustomer: 2.3,
 };
 
 const lima = {
-  minCustomersPerHour: 23,
-  maxCustomersPerHour: 65,
-  avgCookiePerCustomer: 6.3,
+  minCustomersPerHour: 2,
+  maxCustomersPerHour: 16,
+  avgCookiePerCustomer: 4.6,
 };
+
+function randomNumber(min, max) {
+  let customerPerHour = Math.floor(Math.random() * (max - min + 1) + min);
+  return customerPerHour;
+}
