@@ -1,30 +1,35 @@
 'use strict';
 
-const seattle = {
+const store1 = {
+  name: 'Seattle',
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
   avgCookiePerCustomer: 6.3,
 };
 
-const tokyo = {
+const store2 = {
+  name: 'Tokyo',
   minCustomersPerHour: 3,
   maxCustomersPerHour: 24,
   avgCookiePerCustomer: 1.2,
 };
 
-const dubai = {
+const store3 = {
+  name: 'Dubai',
   minCustomersPerHour: 11,
   maxCustomersPerHour: 38,
   avgCookiePerCustomer: 3.7,
 };
 
-const paris = {
+const store4 = {
+  name: 'Paris',
   minCustomersPerHour: 20,
   maxCustomersPerHour: 38,
   avgCookiePerCustomer: 2.3,
 };
 
-const lima = {
+const store5 = {
+  name: 'Lima',
   minCustomersPerHour: 2,
   maxCustomersPerHour: 16,
   avgCookiePerCustomer: 4.6,
@@ -36,22 +41,22 @@ function randomNumber(min, max) {
   return customerPerHour;
 }
 
-//This object will store a key of store with a value of array of sales.
-const storeData = {};
-
 function calculateSales(storeName) {
-  const storeSales = [];
+  const storeSales = []; //this array will store the sales per hour
+  //this for loop will calculate the sales per hours
   for (let i = 0; i < 14; i++) {
     let perHourSales = randomNumber(
       storeName.minCustomersPerHour,
       storeName.maxCustomersPerHour
     );
     storeSales.push(perHourSales);
-    console.log(perHourSales);
+    // console.log(perHourSales);
   }
-  console.log(storeSales);
+  // console.log(storeSales);
+  storeName.sales = storeSales;
+  console.log(storeName);
   return storeSales;
 }
 
-calculateSales(seattle);
+calculateSales(store1);
 // console.log(storeSales);
