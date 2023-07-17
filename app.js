@@ -73,11 +73,10 @@ calculateSales(store2);
 calculateSales(store3);
 calculateSales(store4);
 
-
 function createSalesPerHour(store) {
   let mainName = document.createElement('p');
-   let unorderedList = document.getElementById('store');
-   let total = null;
+  let unorderedList = document.getElementById('store');
+  let total = null;
   mainName.textContent = store.name;
   unorderedList.appendChild(mainName);
   let liName = document.getElementById('store');
@@ -85,18 +84,20 @@ function createSalesPerHour(store) {
     if (i < 6) {
       total += store.sales[i];
       let listItem = document.createElement('li');
-      listItem.textContent = i+6 + 'am: ' + store.sales[i] + ' cookies';
+      listItem.textContent = i + 6 + 'am: ' + store.sales[i] + ' cookies';
       liName.appendChild(listItem);
     } else if (i === 6) {
+      total += store.sales[i];
       let listItem = document.createElement('li');
-      listItem.textContent = i+6 + 'pm: ' + store.sales[i] + ' cookies';
+      listItem.textContent = i + 6 + 'pm: ' + store.sales[i] + ' cookies';
       liName.appendChild(listItem);
     } else {
+      total += store.sales[i];
       let listItem = document.createElement('li');
-      listItem.textContent = i-6 + 'pm: ' + store.sales[i] + ' cookies';
+      listItem.textContent = i - 6 + 'pm: ' + store.sales[i] + ' cookies';
       liName.appendChild(listItem);
-    };
-  };
+    }
+  }
   let listItem = document.createElement('li');
   listItem.textContent = 'Total: ' + total + ' cookies';
   liName.appendChild(listItem);
