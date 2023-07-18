@@ -1,8 +1,11 @@
 'use strict';
 
 // This function returns a number between min and max inclusive.
-function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+function randomNumber() {
+  return Math.floor(
+    Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1) +
+      this.minCustomersPerHour
+  );
 }
 
 const store1 = {
@@ -10,10 +13,11 @@ const store1 = {
   minCustomersPerHour: 23,
   maxCustomersPerHour: 65,
   avgCookiePerCustomer: 6.3,
-  randomCustomers: function () {
-    return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
+  randomCustomers: randomNumber,
+  // randomCustomers: function () {
+    // return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
     // return Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
-  },
+  // },
 };
 
 const store2 = {
@@ -21,9 +25,10 @@ const store2 = {
   minCustomersPerHour: 3,
   maxCustomersPerHour: 24,
   avgCookiePerCustomer: 1.2,
-  randomCustomers: function () {
-    return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  },
+  randomCustomers: randomNumber,
+  // randomCustomers: function () {
+  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
+  // },
 };
 
 const store3 = {
@@ -31,9 +36,10 @@ const store3 = {
   minCustomersPerHour: 11,
   maxCustomersPerHour: 38,
   avgCookiePerCustomer: 3.7,
-  randomCustomers: function () {
-    return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  },
+  randomCustomers: randomNumber,
+  // randomCustomers: function () {
+  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
+  // },
 };
 
 const store4 = {
@@ -41,9 +47,10 @@ const store4 = {
   minCustomersPerHour: 20,
   maxCustomersPerHour: 38,
   avgCookiePerCustomer: 2.3,
-  randomCustomers: function () {
-    return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  },
+  randomCustomers: randomNumber,
+  // randomCustomers: function () {
+  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
+  // },
 };
 
 const store5 = {
@@ -51,9 +58,10 @@ const store5 = {
   minCustomersPerHour: 2,
   maxCustomersPerHour: 16,
   avgCookiePerCustomer: 4.6,
-  randomCustomers: function () {
-    return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  },
+  randomCustomers: randomNumber,
+  // randomCustomers: function () {
+  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
+  // },
 };
 
 function calculateSales(storeName) {
