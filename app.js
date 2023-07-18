@@ -28,7 +28,9 @@ function randomNumber() {
 function salesPerHour() {
   const salesArray = [];
   for (let i = 0; i < 14; i++) {
-    salesArray.push(Math.floor(this.randomCustomers() * this.avgCookiePerCustomer));
+    salesArray.push(
+      Math.floor(this.randomCustomers() * this.avgCookiePerCustomer)
+    );
   }
   return salesArray;
 }
@@ -40,6 +42,13 @@ function dailyTotal() {
   }
   return daily;
 }
+
+const hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// function hourlyTotal(store) {
+//   for (let i = 0; i < 14; i++) {
+//     hourlyTotalArray[i] += store.salesData()[i];
+//   }
+// }
 
 const SALES_TABLE_HEAD = document.getElementById('table-head');
 const SALES_TABLE_BODY = document.getElementById('table-body');
@@ -70,14 +79,37 @@ function displayBody() {
   for (let i = 0; i < 14; i++) {
     let cellElement = document.createElement('td');
     cellElement.textContent = this.salesData()[i];
+    // hourlyTotalArray[i] += this.salesData()[i];
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
   cellElement.textContent = this.dailyData();
   rowElement.appendChild(cellElement);
+  // hourlyTotal(this);
 }
 
-function Store(name, minCustomersPerHour, maxCustomersPerHour, avgCookiePerCustomer) {
+function displayFooter() {
+  let rowElement = document.createElement('tr');
+  let cellElement = document.createElement('td');
+  cellElement.textContent = 'Totals';
+  rowElement.appendChild(cellElement);
+  SALES_TABLE_FOOTER.appendChild(rowElement);
+  for (let i = 0; i < 14; i++) {
+    let cellElement = document.createElement('td');
+    cellElement.textContent = '';
+    rowElement.appendChild(cellElement);
+  }
+  cellElement = document.createElement('td');
+  cellElement.textContent = '';
+  rowElement.appendChild(cellElement);
+}
+
+function Store(
+  name,
+  minCustomersPerHour,
+  maxCustomersPerHour,
+  avgCookiePerCustomer
+) {
   this.name = name;
   this.minCustomersPerHour = minCustomersPerHour;
   this.maxCustomersPerHour = maxCustomersPerHour;
@@ -96,13 +128,11 @@ let dubai = new Store('Dubai', 11, 38, 3.7);
 let paris = new Store('Paris', 20, 38, 2.3);
 let lima = new Store('Lima', 2, 16, 4.6);
 
-
-console.log(seattle.dailyData());
-console.log(tokyo.dailyData());
-console.log(dubai.dailyData());
 displayHead();
 seattle.displayData();
 tokyo.displayData();
 dubai.displayData();
 paris.displayData();
 lima.displayData();
+displayFooter();
+console.log(hourlyTotalArray);
