@@ -84,7 +84,7 @@ calculateSales(store4);
 function createSalesPerHour(store) {
   let total = 0; //this variable tracks the total amount of sales
   let unorderedList = document.getElementById('store');
-  let mainName = document.createElement('p');
+  let mainName = document.createElement('h2');
   mainName.textContent = store.name;
   unorderedList.appendChild(mainName);
   let liName = document.getElementById('store');
