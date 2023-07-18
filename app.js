@@ -1,6 +1,23 @@
 'use strict';
 
 // This function returns a number between min and max inclusive.
+const hours = [
+  '6:00am',
+  '7:00am',
+  '8:00am',
+  '9:00am',
+  '10:00am',
+  '11:00am',
+  '12:00pm',
+  '1:00pm',
+  '2:00pm',
+  '3:00pm',
+  '4:00pm',
+  '5:00pm',
+  '6:00pm',
+  '7:00pm',
+];
+
 function randomNumber() {
   return Math.floor(
     Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1) +
@@ -36,24 +53,28 @@ function displayHead() {
   SALES_TABLE_HEAD.appendChild(rowElement);
   for (let i = 0; i < 14; i++) {
     let cellElement = document.createElement('td');
-    cellElement.textContent = this.hours[i];
+    cellElement.textContent = hours[i];
     rowElement.appendChild(cellElement);
-    SALES_TABLE_HEAD.appendChild(rowElement);
   }
+  cellElement = document.createElement('td');
+  cellElement.textContent = 'Daily Location Total';
+  rowElement.appendChild(cellElement);
 }
 
 function displayBody() {
   let rowElement = document.createElement('tr');
   let cellElement = document.createElement('td');
-  cellElement.textContent = '';
+  cellElement.textContent = this.name;
   rowElement.appendChild(cellElement);
-  SALES_TABLE_HEAD.appendChild(rowElement);
+  SALES_TABLE_BODY.appendChild(rowElement);
   for (let i = 0; i < 14; i++) {
     let cellElement = document.createElement('td');
-    cellElement.textContent = this.hours[i];
+    cellElement.textContent = this.salesData()[i];
     rowElement.appendChild(cellElement);
-    SALES_TABLE_HEAD.appendChild(rowElement);
   }
+  cellElement = document.createElement('td');
+  cellElement.textContent = this.dailyData();
+  rowElement.appendChild(cellElement);
 }
 
 function Store(name, minCustomersPerHour, maxCustomersPerHour, avgCookiePerCustomer) {
@@ -63,7 +84,7 @@ function Store(name, minCustomersPerHour, maxCustomersPerHour, avgCookiePerCusto
   this.avgCookiePerCustomer = avgCookiePerCustomer;
 }
 
-Store.prototype.hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
+Store.prototype.hours = hours;
 Store.prototype.randomCustomers = randomNumber;
 Store.prototype.salesData = salesPerHour;
 Store.prototype.dailyData = dailyTotal;
@@ -79,4 +100,9 @@ let lima = new Store('Lima', 2, 16, 4.6);
 console.log(seattle.dailyData());
 console.log(tokyo.dailyData());
 console.log(dubai.dailyData());
+displayHead();
 seattle.displayData();
+tokyo.displayData();
+dubai.displayData();
+paris.displayData();
+lima.displayData();

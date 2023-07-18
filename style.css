@@ -30,11 +30,15 @@ header {
 
 table {
   margin-top: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
-td {
-  font-family: Arial, Helvetica, sans-serif;
-  min-width: 5rem;
-  text-align: center;
-  /* border: thin solid black */
+thead {
+  width: 5rem;
+  padding-top: 1rem;
+}
+
+tbody {
+  border: thin solid black
 }
