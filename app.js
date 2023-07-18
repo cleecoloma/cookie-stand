@@ -84,17 +84,27 @@ function createSalesPerHour(store) {
     if (i < 6) {
       total += store.sales[i];
       let listItem = document.createElement('li');
-      listItem.textContent = i + 6 + 'am: ' + store.sales[i] + ' cookies';
+      listItem.textContent = i + 6 + 'am: ' + Math.floor(store.sales[i] * store.avgCookiePerCustomer) + ' cookies';
       liName.appendChild(listItem);
     } else if (i === 6) {
       total += store.sales[i];
       let listItem = document.createElement('li');
-      listItem.textContent = i + 6 + 'pm: ' + store.sales[i] + ' cookies';
+      listItem.textContent =
+        i +
+        6 +
+        'pm: ' +
+        Math.floor(store.sales[i] * store.avgCookiePerCustomer) +
+        ' cookies';
       liName.appendChild(listItem);
     } else {
       total += store.sales[i];
       let listItem = document.createElement('li');
-      listItem.textContent = i - 6 + 'pm: ' + store.sales[i] + ' cookies';
+      listItem.textContent =
+        i -
+        6 +
+        'pm: ' +
+        Math.floor(store.sales[i] * store.avgCookiePerCustomer) +
+        ' cookies';
       liName.appendChild(listItem);
     }
   }
