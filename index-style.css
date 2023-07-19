@@ -48,22 +48,32 @@ a {
 }
 
 .card {
-  background-color: gainsboro;
-  height: 400px;
   width: 250px;
-  border-radius: 10px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
-ul {
+ol {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color:darkcyan;
   padding: 1rem 1rem;
+  border-radius: 0 0 10px 10px;
+}
+
+h2 {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  background-color: darkgrey;
+  border-radius: 10px 10px 0 0;
 }
 
 li {
   color: white;
+  text-align: center;
+  padding-bottom: 10px;
 }
