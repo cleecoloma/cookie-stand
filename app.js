@@ -43,7 +43,7 @@ function dailyTotal() {
   return daily;
 }
 
-const hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 // function hourlyTotal(store) {
 //   for (let i = 0; i < 14; i++) {
 //     hourlyTotalArray[i] += store.salesData()[i];
@@ -79,7 +79,7 @@ function displayBody() {
   for (let i = 0; i < 14; i++) {
     let cellElement = document.createElement('td');
     cellElement.textContent = this.salesData()[i];
-    // hourlyTotalArray[i] += this.salesData()[i];
+    hourlyTotalArray[i] += parseInt(cellElement.textContent);
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
@@ -96,7 +96,7 @@ function displayFooter() {
   SALES_TABLE_FOOTER.appendChild(rowElement);
   for (let i = 0; i < 14; i++) {
     let cellElement = document.createElement('td');
-    cellElement.textContent = '';
+    cellElement.textContent = hourlyTotalArray[i];
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
@@ -114,12 +114,15 @@ function Store(
   this.minCustomersPerHour = minCustomersPerHour;
   this.maxCustomersPerHour = maxCustomersPerHour;
   this.avgCookiePerCustomer = avgCookiePerCustomer;
+  this.randomCustomers = randomNumber;
+  this.salesData = salesPerHour;
+  this.dailyData = dailyTotal;
 }
 
 Store.prototype.hours = hours;
-Store.prototype.randomCustomers = randomNumber;
-Store.prototype.salesData = salesPerHour;
-Store.prototype.dailyData = dailyTotal;
+// Store.prototype.randomCustomers = randomNumber;
+// Store.prototype.salesData = salesPerHour;
+// Store.prototype.dailyData = dailyTotal;
 Store.prototype.displayData = displayBody;
 
 let seattle = new Store('Seattle', 23, 65, 6.3);
@@ -132,7 +135,7 @@ displayHead();
 seattle.displayData();
 tokyo.displayData();
 dubai.displayData();
-paris.displayData();
-lima.displayData();
+// paris.displayData();
+// lima.displayData();
 displayFooter();
 console.log(hourlyTotalArray);
