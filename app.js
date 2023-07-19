@@ -35,20 +35,14 @@ function salesPerHour() {
   return salesArray;
 }
 
-function dailyTotal() {
-  let daily = 0;
-  for (let i = 0; i < 14; i++) {
-    daily += this.salesData()[i];
-  }
-  return daily;
-}
-
 let hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let grandTotal = 0;
 
 const SALES_TABLE_HEAD = document.getElementById('table-head');
 const SALES_TABLE_BODY = document.getElementById('table-body');
 const SALES_TABLE_FOOTER = document.getElementById('table-footer');
+// const TR_ELEMENT = document.createElement('tr');
+// const ELEMENT = document.createElement('td');
 
 function displayHead() {
   let rowElement = document.createElement('tr');
@@ -72,15 +66,17 @@ function displayBody() {
   cellElement.textContent = this.name;
   rowElement.appendChild(cellElement);
   SALES_TABLE_BODY.appendChild(rowElement);
+  let locationTotal = 0;
   for (let i = 0; i < 14; i++) {
     let cellElement = document.createElement('td');
     cellElement.textContent = this.salesData()[i];
+    locationTotal += parseInt(cellElement.textContent);
     hourlyTotalArray[i] += parseInt(cellElement.textContent);
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
-  cellElement.textContent = this.dailyData();
-  grandTotal += parseInt(cellElement.textContent);
+  cellElement.textContent = locationTotal;
+  grandTotal += locationTotal;
   rowElement.appendChild(cellElement);
 }
 
@@ -112,13 +108,9 @@ function Store(
   this.avgCookiePerCustomer = avgCookiePerCustomer;
   this.randomCustomers = randomNumber;
   this.salesData = salesPerHour;
-  this.dailyData = dailyTotal;
 }
 
 Store.prototype.hours = hours;
-// Store.prototype.randomCustomers = randomNumber;
-// Store.prototype.salesData = salesPerHour;
-// Store.prototype.dailyData = dailyTotal;
 Store.prototype.displayData = displayBody;
 
 let seattle = new Store('Seattle', 23, 65, 6.3);
