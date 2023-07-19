@@ -49,15 +49,15 @@ function displayHead() {
   let cellElement = document.createElement('td');
   cellElement.textContent = '';
   rowElement.appendChild(cellElement);
-  SALES_TABLE_HEAD.appendChild(rowElement);
   for (let i = 0; i < 14; i++) {
-    let cellElement = document.createElement('td');
+    cellElement = document.createElement('td');
     cellElement.textContent = hours[i];
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
   cellElement.textContent = 'Daily Location Total';
   rowElement.appendChild(cellElement);
+  SALES_TABLE_HEAD.appendChild(rowElement);
 }
 
 function displayBody() {
@@ -65,10 +65,9 @@ function displayBody() {
   let cellElement = document.createElement('td');
   cellElement.textContent = this.name;
   rowElement.appendChild(cellElement);
-  SALES_TABLE_BODY.appendChild(rowElement);
   let locationTotal = 0;
   for (let i = 0; i < 14; i++) {
-    let cellElement = document.createElement('td');
+    cellElement = document.createElement('td');
     cellElement.textContent = this.salesData()[i];
     locationTotal += parseInt(cellElement.textContent);
     hourlyTotalArray[i] += parseInt(cellElement.textContent);
@@ -78,6 +77,7 @@ function displayBody() {
   cellElement.textContent = locationTotal;
   grandTotal += locationTotal;
   rowElement.appendChild(cellElement);
+  SALES_TABLE_BODY.appendChild(rowElement);
 }
 
 function displayFooter() {
@@ -85,15 +85,15 @@ function displayFooter() {
   let cellElement = document.createElement('td');
   cellElement.textContent = 'Totals';
   rowElement.appendChild(cellElement);
-  SALES_TABLE_FOOTER.appendChild(rowElement);
   for (let i = 0; i < 14; i++) {
-    let cellElement = document.createElement('td');
+    cellElement = document.createElement('td');
     cellElement.textContent = hourlyTotalArray[i];
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
   cellElement.textContent = grandTotal;
   rowElement.appendChild(cellElement);
+  SALES_TABLE_FOOTER.appendChild(rowElement);
 }
 
 function Store(

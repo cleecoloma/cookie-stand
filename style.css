@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: darksalmon;
+  background-color: #e9967a;
   color: white;
   margin: 0 8rem;
 }
@@ -32,20 +32,25 @@ table {
   margin-top: 3rem;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  vertical-align: middle;
 }
 
 thead {
-  width: 5rem;
-  padding-top: 1rem;
+  color: #333333;
+  height: 2rem;
+  font-size: large;
 }
 
-tbody {
-  border: thin solid black
-}
-
-td {
+tbody td, tfoot td {
   min-width: 5rem;
-  border: thin solid black;
+  border: thin solid #006400;
+  text-align: center;
+  vertical-align: middle;
+}
+
+tbody td:first-child, tfoot td:first-child {
+  color: #333333;
+  font-size: large;
 }
 
 tr {
