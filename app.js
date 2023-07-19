@@ -41,8 +41,6 @@ let grandTotal = 0;
 const SALES_TABLE_HEAD = document.getElementById('table-head');
 const SALES_TABLE_BODY = document.getElementById('table-body');
 const SALES_TABLE_FOOTER = document.getElementById('table-footer');
-// const TR_ELEMENT = document.createElement('tr');
-// const ELEMENT = document.createElement('td');
 
 function displayHead() {
   let rowElement = document.createElement('tr');
@@ -126,4 +124,3 @@ dubai.displayData();
 paris.displayData();
 lima.displayData();
 displayFooter();
-console.log(hourlyTotalArray);
