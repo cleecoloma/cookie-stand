@@ -44,11 +44,7 @@ function dailyTotal() {
 }
 
 let hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-// function hourlyTotal(store) {
-//   for (let i = 0; i < 14; i++) {
-//     hourlyTotalArray[i] += store.salesData()[i];
-//   }
-// }
+let grandTotal = 0;
 
 const SALES_TABLE_HEAD = document.getElementById('table-head');
 const SALES_TABLE_BODY = document.getElementById('table-body');
@@ -84,8 +80,8 @@ function displayBody() {
   }
   cellElement = document.createElement('td');
   cellElement.textContent = this.dailyData();
+  grandTotal += parseInt(cellElement.textContent);
   rowElement.appendChild(cellElement);
-  // hourlyTotal(this);
 }
 
 function displayFooter() {
@@ -100,7 +96,7 @@ function displayFooter() {
     rowElement.appendChild(cellElement);
   }
   cellElement = document.createElement('td');
-  cellElement.textContent = '';
+  cellElement.textContent = grandTotal;
   rowElement.appendChild(cellElement);
 }
 
@@ -135,7 +131,7 @@ displayHead();
 seattle.displayData();
 tokyo.displayData();
 dubai.displayData();
-// paris.displayData();
-// lima.displayData();
+paris.displayData();
+lima.displayData();
 displayFooter();
 console.log(hourlyTotalArray);
