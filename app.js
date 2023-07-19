@@ -1,6 +1,24 @@
 'use strict';
 
 // This function returns a number between min and max inclusive.
+const hours = [
+  '6:00am',
+  '7:00am',
+  '8:00am',
+  '9:00am',
+  '10:00am',
+  '11:00am',
+  '12:00pm',
+  '1:00pm',
+  '2:00pm',
+  '3:00pm',
+  '4:00pm',
+  '5:00pm',
+  '6:00pm',
+  '7:00pm',
+];
+
+//generates random number between min and max customer values
 function randomNumber() {
   return Math.floor(
     Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1) +
@@ -8,120 +26,110 @@ function randomNumber() {
   );
 }
 
-const store1 = {
-  name: 'Seattle',
-  minCustomersPerHour: 23,
-  maxCustomersPerHour: 65,
-  avgCookiePerCustomer: 6.3,
-  randomCustomers: randomNumber,
-  // randomCustomers: function () {
-    // return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-    // return Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1) + this.minCustomersPerHour);
-  // },
-};
-
-const store2 = {
-  name: 'Tokyo',
-  minCustomersPerHour: 3,
-  maxCustomersPerHour: 24,
-  avgCookiePerCustomer: 1.2,
-  randomCustomers: randomNumber,
-  // randomCustomers: function () {
-  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  // },
-};
-
-const store3 = {
-  name: 'Dubai',
-  minCustomersPerHour: 11,
-  maxCustomersPerHour: 38,
-  avgCookiePerCustomer: 3.7,
-  randomCustomers: randomNumber,
-  // randomCustomers: function () {
-  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  // },
-};
-
-const store4 = {
-  name: 'Paris',
-  minCustomersPerHour: 20,
-  maxCustomersPerHour: 38,
-  avgCookiePerCustomer: 2.3,
-  randomCustomers: randomNumber,
-  // randomCustomers: function () {
-  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  // },
-};
-
-const store5 = {
-  name: 'Lima',
-  minCustomersPerHour: 2,
-  maxCustomersPerHour: 16,
-  avgCookiePerCustomer: 4.6,
-  randomCustomers: randomNumber,
-  // randomCustomers: function () {
-  //   return randomNumber(this.minCustomersPerHour, this.maxCustomersPerHour);
-  // },
-};
-
-function calculateSales(storeName) {
-  const storeSales = []; //this array will store the sales per hour
-  //this for loop will calculate the sales per hours
+//generates the sales per hour using avg cookie oer customer and random function
+function salesPerHour() {
+  const salesArray = [];
   for (let i = 0; i < 14; i++) {
-    let perHourSales = storeName.randomCustomers();
-    storeSales.push(perHourSales);
+    salesArray.push(
+      Math.floor(this.randomCustomers() * this.avgCookiePerCustomer)
+    );
   }
-  storeName.sales = storeSales; //add a property to the store with key of sales and value of the storeSales array.
-  console.log(storeName);
-  return storeSales;
+  return salesArray;
 }
 
-calculateSales(store1);
-calculateSales(store2);
-calculateSales(store3);
-calculateSales(store4);
+// global variables
+let hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let grandTotal = 0;
 
-function createSalesPerHour(store) {
-  let total = 0; //this variable tracks the total amount of sales
-  let unorderedList = document.getElementById('store');
-  let mainName = document.createElement('h2');
-  mainName.textContent = store.name;
-  unorderedList.appendChild(mainName);
-  let liName = document.getElementById('store');
-  for (let i = 0; i < store.sales.length; i++) {
-    if (i < 6) {
-      total += store.sales[i];
-      let listItem = document.createElement('li');
-      listItem.textContent = i + 6 + 'am: ' + Math.floor(store.sales[i] * store.avgCookiePerCustomer) + ' cookies';
-      liName.appendChild(listItem);
-    } else if (i === 6) {
-      total += store.sales[i];
-      let listItem = document.createElement('li');
-      listItem.textContent =
-        i +
-        6 +
-        'pm: ' +
-        Math.floor(store.sales[i] * store.avgCookiePerCustomer) +
-        ' cookies';
-      liName.appendChild(listItem);
-    } else {
-      total += store.sales[i];
-      let listItem = document.createElement('li');
-      listItem.textContent =
-        i -
-        6 +
-        'pm: ' +
-        Math.floor(store.sales[i] * store.avgCookiePerCustomer) +
-        ' cookies';
-      liName.appendChild(listItem);
-    }
+const SALES_TABLE_HEAD = document.getElementById('table-head');
+const SALES_TABLE_BODY = document.getElementById('table-body');
+const SALES_TABLE_FOOTER = document.getElementById('table-footer');
+
+//displays the table head
+function displayHead() {
+  let rowElement = document.createElement('tr');
+  let cellElement = document.createElement('td');
+  cellElement.textContent = '';
+  rowElement.appendChild(cellElement);
+  for (let i = 0; i < 14; i++) {
+    cellElement = document.createElement('td');
+    cellElement.textContent = hours[i];
+    rowElement.appendChild(cellElement);
   }
-  let listItem = document.createElement('li');
-  listItem.textContent = 'Total: ' + total + ' cookies';
-  liName.appendChild(listItem);
+  cellElement = document.createElement('td');
+  cellElement.textContent = 'Daily Location Total';
+  rowElement.appendChild(cellElement);
+  SALES_TABLE_HEAD.appendChild(rowElement);
 }
 
-createSalesPerHour(store1);
-createSalesPerHour(store2);
-createSalesPerHour(store3);
-createSalesPerHour(store4);
+//displays the table body
+function displayBody() {
+  let rowElement = document.createElement('tr');
+  let cellElement = document.createElement('td');
+  cellElement.textContent = this.name;
+  rowElement.appendChild(cellElement);
+  let locationTotal = 0;
+  for (let i = 0; i < 14; i++) {
+    cellElement = document.createElement('td');
+    cellElement.textContent = this.salesData()[i];
+    locationTotal += parseInt(cellElement.textContent);
+    hourlyTotalArray[i] += parseInt(cellElement.textContent);
+    rowElement.appendChild(cellElement);
+  }
+  cellElement = document.createElement('td');
+  cellElement.textContent = locationTotal;
+  grandTotal += locationTotal;
+  rowElement.appendChild(cellElement);
+  SALES_TABLE_BODY.appendChild(rowElement);
+}
+
+//displays the table footer
+function displayFooter() {
+  let rowElement = document.createElement('tr');
+  let cellElement = document.createElement('td');
+  cellElement.textContent = 'Totals';
+  rowElement.appendChild(cellElement);
+  for (let i = 0; i < 14; i++) {
+    cellElement = document.createElement('td');
+    cellElement.textContent = hourlyTotalArray[i];
+    rowElement.appendChild(cellElement);
+  }
+  cellElement = document.createElement('td');
+  cellElement.textContent = grandTotal;
+  rowElement.appendChild(cellElement);
+  SALES_TABLE_FOOTER.appendChild(rowElement);
+}
+
+//constructor for the stores
+function Store(
+  name,
+  minCustomersPerHour,
+  maxCustomersPerHour,
+  avgCookiePerCustomer
+) {
+  this.name = name;
+  this.minCustomersPerHour = minCustomersPerHour;
+  this.maxCustomersPerHour = maxCustomersPerHour;
+  this.avgCookiePerCustomer = avgCookiePerCustomer;
+  this.randomCustomers = randomNumber;
+  this.salesData = salesPerHour;
+}
+
+Store.prototype.hours = hours;
+Store.prototype.displayData = displayBody;
+
+//creates the stores from the constructor
+let seattle = new Store('Seattle', 23, 65, 6.3);
+let tokyo = new Store('Tokyo', 3, 24, 1.2);
+let dubai = new Store('Dubai', 11, 38, 3.7);
+let paris = new Store('Paris', 20, 38, 2.3);
+let lima = new Store('Lima', 2, 16, 4.6);
+
+//runs the display functions to display the table
+displayHead();
+seattle.displayData();
+tokyo.displayData();
+dubai.displayData();
+paris.displayData();
+lima.displayData();
+displayFooter();
