@@ -21,6 +21,14 @@ header {
   font-size: xx-large;
 }
 
+a {
+  background-color: gray;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
 #logo {
   height: 50px;
   padding-right: 1rem;
