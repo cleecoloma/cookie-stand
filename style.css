@@ -35,6 +35,12 @@ table {
   vertical-align: middle;
 }
 
+caption {
+  margin-bottom: 1rem;
+  font-size: x-large;
+  color: #006400;
+}
+
 thead {
   color: #333333;
   height: 2rem;
