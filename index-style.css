@@ -45,6 +45,20 @@ a:hover {
   background-color: #234023;
 }
 
+#store-list {
+  margin-bottom: 1rem;
+  font-size: xx-large;
+  color: white;
+}
+
+#store-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+
 #store-card {
   display: flex;
   justify-content: center;
