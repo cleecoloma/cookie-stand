@@ -134,5 +134,19 @@ function display() {
   }
   displayFooter();
 }
-
 display();
+
+let formElement = document.getElementById('add-store');
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let storeName = event.target.storeName.value;
+  let minCustomersPerHour = parseInt(event.target.minCustomersPerHour.value);
+  let maxCustomersPerHour = parseInt(event.target.maxCustomersPerHour.value);
+  let avgCookiePerCustomer = parseInt(event.target.avgCookiePerCustomer.value);
+  let addedNewStore = new Store(storeName, minCustomersPerHour, maxCustomersPerHour, avgCookiePerCustomer);
+  display();
+}
+
+formElement.addEventListener('submit', handleSubmit);
+console.log(storesArray);
