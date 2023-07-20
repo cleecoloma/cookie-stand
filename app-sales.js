@@ -154,9 +154,12 @@ function handleSubmit(event) {
     maxCustomersPerHour,
     avgCookiePerCustomer
   );
-  // let body = document.querySelectorAll()
+
   let foot = document.getElementById('table-footer');
   foot.remove();
+  console.log(hourlyTotalArray);
+  console.log(storesArray);
+  addedNewStore.displayData();
   displayFooter();
 }
 
