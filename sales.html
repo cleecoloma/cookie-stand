@@ -20,26 +20,40 @@
       <hr />
       <form action="">
         <fieldset>
-          <label for="store-name">Store Name: </label>
-          <input type="text" id="store-name" name="storeName" />
-          <label for="min-customer-per-hour">Min. Customer per Hour: </label>
-          <input
-            type="number"
-            id="min-customer-per-hour"
-            name="minCustomerPerHour"
-          />
-          <label for="max-customer-per-hour">Min. Customer per Hour: </label>
-          <input
-            type="number"
-            id="max-customer-per-hour"
-            name="maxCustomerPerHour"
-          />
-          <label for="avg-cookie-per-customer">Min. Customer per Hour: </label>
-          <input
-            type="number"
-            id="avg-cookie-per-customer"
-            name="avgCookiePerCustomer"
-          />
+          <div>
+            <label for="store-name">Store Name: </label>
+            <input type="text" id="store-name" name="storeName" required/>
+          </div>
+          <div>
+            <label for="min-customer-per-hour">Min. Customer per Hour: </label>
+            <input
+              type="number"
+              id="min-customer-per-hour"
+              name="minCustomerPerHour"
+              required
+            />
+          </div>
+          <div>
+            <label for="max-customer-per-hour">Min. Customer per Hour: </label>
+            <input
+              type="number"
+              id="max-customer-per-hour"
+              name="maxCustomerPerHour"
+              required
+            />
+          </div>
+          <div>
+            <label for="avg-cookie-per-customer"
+              >Min. Customer per Hour:
+            </label>
+            <input
+              type="number"
+              id="avg-cookie-per-customer"
+              name="avgCookiePerCustomer"
+              required
+            />
+          </div>
+          <button type="submit">Add New Store</button>
         </fieldset>
       </form>
       <hr />

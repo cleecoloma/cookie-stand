@@ -47,8 +47,26 @@ a:hover {
 
 form {
   margin-top: 2rem;
+  width: 30rem;
+  margin: 0 auto;
+  background-color: #234023;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+fieldset {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 300px;
 }
 
 table {
