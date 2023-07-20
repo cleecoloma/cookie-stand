@@ -100,6 +100,7 @@ function displayFooter() {
   SALES_TABLE_FOOTER.appendChild(rowElement);
 }
 
+const storesArray = [];
 //constructor for the stores
 function Store(
   name,
@@ -113,6 +114,7 @@ function Store(
   this.avgCookiePerCustomer = avgCookiePerCustomer;
   this.randomCustomers = randomNumber;
   this.salesData = salesPerHour;
+  storesArray.push(this)
 }
 
 Store.prototype.hours = hours;
@@ -125,11 +127,12 @@ let dubai = new Store('Dubai', 11, 38, 3.7);
 let paris = new Store('Paris', 20, 38, 2.3);
 let lima = new Store('Lima', 2, 16, 4.6);
 
-//runs the display functions to display the table
-displayHead();
-seattle.displayData();
-tokyo.displayData();
-dubai.displayData();
-paris.displayData();
-lima.displayData();
-displayFooter();
+function display() {
+  displayHead();
+  for (let i = 0; i < storesArray.length; i++) {
+    storesArray[i].displayData();
+  }
+  displayFooter();
+}
+
+display();
