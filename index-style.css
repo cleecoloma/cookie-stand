@@ -35,53 +35,65 @@ header {
 a {
   background-color: gray;
   text-decoration: none;
-  padding: 5px;
+  padding: 15px;
   border-radius: 5px;
   color: white;
+  font-size: x-large;
 }
 
-#cards {
+a:hover {
+  background-color: #234023;
+}
+
+#store-card {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
-.card {
-  width: 250px;
+.store {
+  width: 550px;
+  height: 180px;
   margin-right: 50px;
-}
-
-ol {
-  display: flex;
-  justify-content: center;
+  background-color: #333333;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 10px;
   align-items: center;
-  flex-direction: column;
-  background-color:darkcyan;
-  padding: 1rem 1rem;
-  border-radius: 0 0 10px 10px;
+  justify-content: center;
 }
 
-h2 {
+.store h2 {
   display: flex;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
   font-size: 200%;
-  background-color: darkgrey;
+  background-color: #006400;
   border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-li {
-  color: white;
-  text-align: center;
-  padding-bottom: 10px;
+.store h3, .store p {
+  line-height: 150%;
 }
 
-span {
-  font-size: 120%;
+#image-text {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+#image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #image-gallery img {
-  height: 200px;
+  height: 250px;
+  margin: 1rem;
 }
