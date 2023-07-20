@@ -1,6 +1,6 @@
 'use strict';
 
-c// Seattle Store
+// Seattle Store
 const seattleStore = {
   storeName: "Salmon Cookie Co.",
   address: "4567 Pine Street, Seattle, WA 98102, United States",
@@ -44,3 +44,10 @@ const limaStore = {
   email: "info@andeansalmondreams.pe",
   website: "www.andeansalmondreams.pe"
 };
+
+const GET_CARD = document.getElementById('store-card');
+
+function createCard() {
+  let createStore = document.createElement('h2');
+  let createAddress = document.createElement('p');
+}
