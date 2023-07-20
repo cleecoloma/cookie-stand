@@ -42,8 +42,7 @@ let hourlyTotalArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let grandTotal = 0;
 
 const SALES_TABLE_HEAD = document.getElementById('table-head');
-// const SALES_TABLE_BODY = document.getElementById('table-body');
-// const SALES_TABLE_FOOTER = document.getElementById('table-footer');
+const SALES_TABLE_BODY = document.getElementById('table-body');
 const SALES_TABLE = document.getElementById('table');
 
 //displays the table head
@@ -65,8 +64,6 @@ function displayHead() {
 
 //displays the table body
 function displayBody() {
-  let bodyElement = document.createElement('tbody');
-  bodyElement.setAttribute('id', 'table-body');
   let rowElement = document.createElement('tr');
   let cellElement = document.createElement('td');
   cellElement.textContent = this.name;
@@ -83,8 +80,7 @@ function displayBody() {
   cellElement.textContent = locationTotal;
   grandTotal += locationTotal;
   rowElement.appendChild(cellElement);
-  bodyElement.appendChild(rowElement);
-  SALES_TABLE.appendChild(bodyElement);
+  SALES_TABLE_BODY.appendChild(rowElement);
 }
 
 //displays the table footer
@@ -138,10 +134,11 @@ function display() {
   for (let i = 0; i < storesArray.length; i++) {
     storesArray[i].displayData();
   }
-  displayFooter();
 }
+
 displayHead();
 display();
+displayFooter();
 
 let formElement = document.getElementById('add-store');
 
@@ -157,11 +154,10 @@ function handleSubmit(event) {
     maxCustomersPerHour,
     avgCookiePerCustomer
   );
-  let body = document.getElementById('table-body');
-  body.remove();
+  // let body = document.querySelectorAll()
   let foot = document.getElementById('table-footer');
   foot.remove();
-  display();
+  displayFooter();
 }
 
 formElement.addEventListener('submit', handleSubmit);
