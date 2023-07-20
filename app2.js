@@ -60,7 +60,7 @@ const stores = [parisStore, tokyoStore, dubaiStore, parisStore, limaStore]
 const GET_CARD = document.getElementById('store-card');
 
 function createCard(stores) {
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 5; i++) {
     GET_CARD.innerHTML += `<div class="store">
           <h2>${stores[i].city} </h2> 
           <h3>Store: ${stores[i].storeName}</h3>
