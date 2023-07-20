@@ -77,3 +77,11 @@ li {
   text-align: center;
   padding-bottom: 10px;
 }
+
+span {
+  font-size: 120%;
+}
+
+#image-gallery img {
+  height: 200px;
+}
