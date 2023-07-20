@@ -55,10 +55,13 @@ const limaStore = {
   hours: '6AM to 7PM',
 };
 
+// Array the consists of all stores
 const stores = [parisStore, tokyoStore, dubaiStore, parisStore, limaStore]
 
+// This GET_CARD variable looks that the html and located where store-card id is located
 const GET_CARD = document.getElementById('store-card');
 
+// Function that loops through the stores array to append the code inside the GET_CARD variable
 function createCard(stores) {
   for (let i = 0; i < 5; i++) {
     GET_CARD.innerHTML += `<div class="store">
@@ -72,4 +75,5 @@ function createCard(stores) {
   };
 }
 
+// Invokes createCard function using stores array as an argument
 createCard(stores);
