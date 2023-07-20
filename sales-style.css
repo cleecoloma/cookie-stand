@@ -15,11 +15,28 @@ h1 {
 
 header {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 8rem;
   font-size: xx-large;
+}
+
+#link {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  background-color: gray;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  font-size: x-large;
+}
+
+a:hover {
+  background-color: #234023;
 }
 
 #logo {
@@ -37,25 +54,30 @@ table {
 
 caption {
   margin-bottom: 1rem;
-  font-size: x-large;
-  color: #006400;
+  font-size: xx-large;
+  color: white;
 }
 
-thead {
+thead td {
   color: #333333;
-  height: 2rem;
+  padding: 1rem;
+  /* height: 3rem; */
   font-size: large;
+  color: white;
+  background-color: #006400;
 }
 
 tbody td, tfoot td {
+  height: 3rem;
   min-width: 5rem;
   border: thin solid #006400;
   text-align: center;
   vertical-align: middle;
+  background-color: #333333
 }
 
 tbody td:first-child, tfoot td:first-child {
-  color: #333333;
+  color: white;
   font-size: large;
 }
 

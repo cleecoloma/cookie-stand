@@ -1,0 +1,113 @@
+* {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+  background-color: #e9967a;
+  color: white;
+  margin: 0 8rem;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  font-size: xx-large;
+}
+
+#logo {
+  height: 50px;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+#link {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  background-color: gray;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  font-size: x-large;
+}
+
+a:hover {
+  background-color: #234023;
+}
+
+#store-list {
+  margin-bottom: 1rem;
+  font-size: xx-large;
+  color: white;
+}
+
+#store-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+
+#store-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.store {
+  width: 550px;
+  height: 180px;
+  margin-right: 50px;
+  background-color: #333333;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.store h2 {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  background-color: #006400;
+  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.store h3, .store p {
+  line-height: 150%;
+}
+
+#image-text {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+#image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#image-gallery img {
+  height: 250px;
+  margin: 1rem;
+}
