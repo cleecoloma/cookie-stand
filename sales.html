@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="sales-style.css">
+    <link rel="stylesheet" href="sales-style.css" />
     <title>Sales List</title>
   </head>
   <body>
     <header>
-      <img id="logo" src="./img/salmon.png" alt="Cookie Stand Logo" srcset="">
+      <img id="logo" src="./img/salmon.png" alt="Cookie Stand Logo" srcset="" />
       <h1>Sales</h1>
     </header>
     <main>
@@ -17,11 +17,53 @@
       <div id="link">
         <a href="index.html">Click Here for Homepage</a>
       </div>
-      <table>
-        <caption>Sales per Hour at each Location</caption>
+      <hr />
+      <form id="add-store">
+        <fieldset>
+          <div>
+            <label for="store-name">Store Name: </label>
+            <input type="text" id="store-name" name="storeName" required />
+          </div>
+          <div>
+            <label for="min-customers-per-hour">Min Customer per Hour: </label>
+            <input
+              type="number"
+              id="min-customers-per-hour"
+              name="minCustomersPerHour"
+              required
+            />
+          </div>
+          <div>
+            <label for="max-customers-per-hour">Max Customer per Hour: </label>
+            <input
+              type="number"
+              id="max-customers-per-hour"
+              name="maxCustomersPerHour"
+              required
+            />
+          </div>
+          <div>
+            <label for="avg-cookie-per-customer"
+              >Avg Cookie per Customer:
+            </label>
+            <input
+              type="number"
+              id="avg-cookie-per-customer"
+              name="avgCookiePerCustomer"
+              required
+            />
+          </div>
+          <button type="submit">Add New Store</button>
+        </fieldset>
+      </form>
+      <hr />
+      <table id="table">
+        <caption>
+          Sales per Hour at each Location
+        </caption>
         <thead id="table-head"></thead>
         <tbody id="table-body"></tbody>
-        <tfoot id="table-footer"></tfoot>
+        <!-- <tfoot id="table-footer"></tfoot> -->
       </table>
     </main>
     <script src="app-sales.js"></script>
