@@ -43,6 +43,7 @@ a {
 
 a:hover {
   background-color: #234023;
+  transition: 250ms;
 }
 
 #store-list {

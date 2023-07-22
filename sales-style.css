@@ -37,6 +37,7 @@ a {
 
 a:hover {
   background-color: #234023;
+  transition: 250ms;
 }
 
 #logo {
@@ -85,7 +86,6 @@ caption {
 thead td {
   color: #333333;
   padding: 1rem;
-  /* height: 3rem; */
   font-size: large;
   color: white;
   background-color: #006400;
@@ -107,4 +107,17 @@ tbody td:first-child, tfoot td:first-child {
 
 tr {
   height: 2rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 100%;
+}
+
+button:hover {
+  background-color: #006400;
+  color: white;
+  transition: 250ms;
 }
